@@ -10,7 +10,7 @@ class Snek extends React.Component {
     super(props);
     this.state = {
       snakeData: [[0,3], [0,2], [0,1], [0,0]],
-      appleData: [9,9],
+      appleData: [0,6],
       currDir: 0, //0: right, 1: down, 2: left, 3: up
       gameStatus: 0, //0: stop, 1: start, 2: gameover
       boardLen: 20
@@ -19,13 +19,13 @@ class Snek extends React.Component {
     this.startGame = this.startGame.bind(this);
     this.runGame = this.runGame.bind(this);
     this.pauseGame = this.pauseGame.bind(this);
-    // this.updateSnake = this.updateSnake.bind(this);
+    this.updateSnake = this.updateSnake.bind(this);
   }
 
   resetGame() {
     this.setState({
       snakeData: [[0,3], [0,2], [0,1], [0,0]],
-      appleData: [9,9],
+      appleData: [0,6],
       currDir: 0, //0: right, 1: down, 2: left, 3: up
       gameStatus: 0 //0: stop, 1: start, 2: gameover
     });
@@ -38,30 +38,33 @@ class Snek extends React.Component {
     this.setState({
       gameStatus: 1
     });
-    this.cooldown = setInterval(this.runGame, 1000);
+    this.cooldown = setInterval(this.runGame, 600);
   }
 
   pauseGame() {
     clearInterval(this.cooldown);
   }
 
-  // updateSnake(newSnakeData) {
-  //   console.log('update snake:'+  newSnakeData);
-  //   // this.setSnake({
-  //   //   snakeData: newSnakeData
-  //   // });
-  // }
+  updateSnake(newSnakeData) {
+    console.log('update snake:'+  newSnakeData);
+    this.setState({
+      snakeData: newSnakeData
+    });
+  }
 
   runGame() {
     switch( snekFunctions.iterateSnek(this.state.snakeData, this.state.appleData, this.state.currDir, this.state.boardLen, this.updateSnake) ) {
       case 0: //nothing happens
+        console.log('0');
         break;
       case 1: // ate apple, spawn new apple
+        console.log('1');
         this.setState({
-          appleData: snekFunctions.spawnApple(this.state.snakeData, this.state.appleData, this.state.BoardLen)
+          appleData: snekFunctions.spawnApple(this.state.snakeData, this.state.boardLen)
         });
         break;
       case 2: //game over
+        console.log('2');
         this.pauseGame();
         break;
       default: //error

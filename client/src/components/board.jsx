@@ -42,7 +42,7 @@ const Board = ({snakeData, appleData, boardLen}) => {
     boardData[snakeData[i][0]][snakeData[i][1]] = 1;
   }
   boardData[appleData[0]][appleData[1]] = 2;
-  console.log(boardData);
+  // console.log(boardData);
   
   //print board
   const boardItems = boardData.map((data) => {

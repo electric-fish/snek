@@ -68,18 +68,15 @@ export const snekFunctions = {
 
   spawnApple: (snakeData, boardLen) => {
 
-    console.log(boardLen)
     let newApple = [];
     newApple.push(Math.floor(Math.random() * boardLen));
     newApple.push(Math.floor(Math.random() * boardLen));
-    console.log(newApple);
 
     while (snekFunctions.checkBoundary(newApple, boardLen) === 1 || snekFunctions.checkSnake(newApple, snakeData) === 1) {
       newApple[0] = Math.floor(Math.random() * boardLen);
       newApple[1] = Math.floor(Math.random() * boardLen);
     }
 
-    console.log(newApple);
     return newApple;
   }
 

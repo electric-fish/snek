@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./snek.css";
 
 import Game from "./game.jsx";
+import Board from "./board.jsx";
 
 import { snekFunctions } from "./snekFunctions.jsx";
 
@@ -86,7 +87,8 @@ class Snek extends React.Component {
     return (
       <div className={styles.global}>
         <h1 className={styles.header}>Snek</h1>
-        <Game snakeData={this.state.snakeData} appleData={this.state.appleData} currDir={this.state.currDir} gameStatus={this.state.gameStatus} boardLen={this.state.boardLen} />
+        {/* <Game snakeData={this.state.snakeData} appleData={this.state.appleData} currDir={this.state.currDir} gameStatus={this.state.gameStatus} boardLen={this.state.boardLen} /> */}
+        <Board snakeData={this.state.snakeData} appleData={this.state.appleData} boardLen={this.state.boardLen} />
       </div>
     );
   }

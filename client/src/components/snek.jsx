@@ -91,7 +91,31 @@ class Snek extends React.Component {
   }
 
   changeDir(newDir) {
-    console.log(newDir);
+    // console.log(newDir);
+    switch (newDir) {  //0: right, 1: down, 2: left, 3: up
+      case 'w': // up
+        this.setState({
+          currDir: 3
+        });
+        break;
+      case 'a': // left
+        this.setState({
+          currDir: 2
+        });
+        break;
+      case 's': // down
+        this.setState({
+          currDir: 1
+        });
+        break;
+      case 'd': // right
+        this.setState({
+          currDir: 0
+        });
+        break;
+      default:
+        break;
+    }
   }
 
   changeGameStatus() {

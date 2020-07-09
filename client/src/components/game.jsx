@@ -11,7 +11,7 @@ const useKeyPress = (targetKey, targetFunction) => {
   const downHandler = ({ key }) => {
     if (key === targetKey) {      
       // change direction or pause/start
-      console.log(key);
+      // console.log(key);
       targetFunction(key);
 
       setKeyPressed(true);

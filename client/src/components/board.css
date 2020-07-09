@@ -1,0 +1,28 @@
+.board_container {
+  display: grid;
+  grid-template-columns: 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px;
+}
+
+.board_block_0 {
+  background-color: #e2eecc;
+  color: #fff;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #ccc;
+}
+
+.board_block_1 {
+  background-color: #3e755a;
+  color: #fff;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #ccc;
+}
+
+.board_block_2 {
+  background-color: #80291e;
+  color: #fff;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #ccc;
+}
